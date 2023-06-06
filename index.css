@@ -1,0 +1,208 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+:root {
+  --Dark-Slate-Grey: hsl(234, 29%, 20%);
+  --Charcoal-Grey: hsl(235, 18%, 26%);
+  --Grey: hsl(231, 7%, 60%);
+  --White: hsl(0, 0%, 100%);
+  --Tomato: hsl(4, 100%, 67%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  display: grid;
+  place-content: center;
+  line-height: 25px;
+  color: var(--Dark-Slate-Grey);
+}
+main {
+  
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+}
+
+img_wrapper img {
+  object-fit: cover;
+}
+.content_wrapper {
+  padding: 0 1.5rem;
+}
+
+.hidden {
+  display: none;
+  scale: 0;
+}
+.content h1,
+.content p,
+.content ul {
+  margin-bottom: 1.5rem;
+}
+.content p,
+.content ul {
+  color: var(--Charcoal-Grey);
+  font-weight: 400;
+}
+
+.content ul li {
+  list-style-image: url(assets/images/icon-list.svg);
+  list-style-position: inside;
+}
+label {
+  display: flex;
+  justify-content: space-between;
+}
+label p {
+  color: hsl(234, 29%, 20%);
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.errorMessage {
+  color: var(--Tomato);
+  display: none;
+  transition: ease-in .5s;
+}
+.errorMessage.active{
+  display: block;
+  animation-name: buzzing;
+  animation-duration: 2s;
+} /* 当添加了这个active class以后 字会出现*/
+
+input,
+.submit_btn,
+.dismiss_btn {
+  width: 100%;
+  padding: 1rem 0.2rem;
+  border-radius: 8px;
+  border: 1px solid var(--Grey);
+  margin-bottom: 1.5rem;
+}
+input {
+  padding-left: 2rem;
+}
+
+
+input.invalid {
+  background-color: var(--Light-Tomato);
+  border-color: var(--Tomato);
+  outline-color: var(--Tomato);
+}
+
+input.invalid::placeholder{
+ color: var(--Tomato);
+ opacity: .9;
+}  /*就是当输入错误，加上这个invalid class 让边框变红色，内容变红色*/
+
+.submit_btn,
+.dismiss_btn {
+  color: white;
+  background-color: var(--Charcoal-Grey);
+  font-weight: 700;
+}
+
+input:hover {
+  cursor: pointer;
+  border: 1px solid var(--Dark-Slate-Grey);
+}
+button:hover {
+  cursor: pointer;
+  background-image: linear-gradient(90deg, hsl(4, 100%, 67%), orange);
+}
+
+.thank_you {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  text-align: left;
+
+}
+
+.thank_you img,
+h2,
+p,
+button{
+  margin-bottom: 1.5rem;
+
+}
+.thank_you img{
+  align-self: flex-start;
+  width: 50px;
+}
+.thank_you h2{
+  font-size: 2rem;
+  
+}
+.thank_you #user_email{
+  font-weight: 700;
+}
+.thank_you button{
+  margin-top: 3rem;
+}
+
+
+
+@keyframes buzzing {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(5px) rotateZ(-5deg); }
+  50% { transform: translateX(-5px) rotateZ(5deg); }
+  75% { transform: translateX(5px) rotateZ(-5deg); }
+  100% { transform: translateX(0); }
+}
+
+
+@media screen and (min-width: 768px){
+  body{
+    height: 100vh;
+    background-color:var(--Charcoal-Grey);
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container{
+    height: 100vh;
+     justify-content: center;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items:center;
+    background-color: white;
+    border-radius: 25px;
+    margin:0 1rem;
+    
+  }
+  .img_wrapper{
+    padding: 1rem;
+  }
+  .content_wrapper{
+    padding:1rem 3rem;
+  
+  }
+  .content h1{
+    font-size: 3rem;
+   }
+   .content ul{
+    line-height: 2.3rem;
+   }
+  .thank_you{
+    display: flex;
+    width: 400px;
+    padding:30px;
+    border-radius: 10px;
+    background-color: white;
+  }
+
+  }
+
